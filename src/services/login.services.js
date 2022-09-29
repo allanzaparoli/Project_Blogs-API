@@ -1,13 +1,13 @@
-const { user } = require('../models');
+const { User } = require('../models');
 const { generateToken } = require('../utils/JWT');
 
 const login = async ({ email, password }) => {
-const result = await user.findOne({
+const result = await User.findOne({
 attributes: ['email', 'password'],
 where: { email, password },
 });
 
-const emailExist = await user.findOne({ where: { email } });
+const emailExist = await User.findOne({ where: { email } });
   if (!emailExist) {
     return { error: 400, message: 'Invalid fields' };
   }
