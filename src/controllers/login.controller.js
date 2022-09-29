@@ -1,11 +1,11 @@
 const loginService = require('../services/login.services');
 
 const login = async (req, res) => {
-  const { email, password} = req.body;
+  const { email, password } = req.body;
   try {
-    const result = await loginService.login({email, password});
+    const result = await loginService.login({ email, password });
     if (result.error) {
-      return res.status(result.error).json({ message: result.message })
+      return res.status(result.error).json({ message: result.message });
     }
     return res.status(200).json(result);
   } catch (e) {
