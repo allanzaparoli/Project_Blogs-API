@@ -1,12 +1,12 @@
 const User = (sequelize, DataTypes) => {
-  const User = sequelize.define('User', {
+  const User = sequelize.define('user', {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    display_name: {
+    displayName: {
       allowNull: false,
       type: DataTypes.STRING
     },
@@ -21,7 +21,13 @@ const User = (sequelize, DataTypes) => {
     image: {
       type: DataTypes.STRING
     },
-  });
+      
+  }, {
+    timestamps: false,
+  underscored: true,
+  tableName: 'users',
+  },
+  );
 
   return User;
 };
