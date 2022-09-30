@@ -1,5 +1,5 @@
 // requisito 4
-const { User } = require('../models/User');
+const { User } = require('../models');
 
 const validationUser = async (req, res, next) => {
   const { displayName, email, password } = req.body;
