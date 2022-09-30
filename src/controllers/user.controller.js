@@ -9,6 +9,17 @@ const user = async (req, res) => {
     return res.status(201).json(result);
   };
 
+const getAll = async (_req, res) => {
+  try {
+    const users = await userService.getAll();
+    return res.status(200).json(users);
+  } catch (e) {
+    console.log(e.message);
+    res.status(500).json({ message: 'Estou aqui' });
+  }
+};
+
 module.exports = {
   user,
+  getAll,
 };
