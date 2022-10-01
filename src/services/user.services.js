@@ -13,7 +13,13 @@ const getAll = async () => {
   return users;
 };
 
+const getById = async (id) => {
+    const result = await User.findByPk(id, { attributes: { exclude: ['password'] } });
+    return result;
+};
+
 module.exports = {
 user,
 getAll,
+getById,
 };
