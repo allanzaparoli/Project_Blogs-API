@@ -21,4 +21,4 @@ const validationPost = async (req, res, next) => {
   next();
 };
 
-module.exports = { validationPost };
+module.exports = validationPost;
