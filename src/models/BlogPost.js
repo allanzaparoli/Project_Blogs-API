@@ -1,7 +1,5 @@
-const { createConnection } = require("mysql2");
-
 const BlogPost = (sequelize, DataTypes) => {
-  const blogPost = sequelize.define('BlogPost', {
+  const BlogPost = sequelize.define('BlogPost', {
     id: {
       allowNull: false,
       autoIncrement: true,
@@ -17,7 +15,7 @@ const BlogPost = (sequelize, DataTypes) => {
       type: DataTypes.STRING
     },
 
-    user_id: {
+    userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       onDelete: 'CASCADE',
@@ -25,17 +23,28 @@ const BlogPost = (sequelize, DataTypes) => {
       references: {
         model: 'users',
         key: 'id',
-      },
-    published: DataTypes.DATE,
-    updated: DataTypes.DATE,
+    }},
+
+    published: {
+      type: DataTypes.DATE,
     },
-  });
+
+    updated: {
+      type: DataTypes.DATE,
+    }
+  }, 
+  {
+      tableName: 'blog_posts',
+      timestamps: false,
+      underscored: true,
+    }
+    );
 
   BlogPost.associate = (models) => {
-    BlogPost.belongsTo(models.PostCategory, { foreignKey: 'post_id', as: 'postCategories' });
+    BlogPost.belongsTo(models.User, { foreignKey: 'userId', as: 'user' });
   }
 
-  return blogPost;
+  return BlogPost;
 };
 
 module.exports = BlogPost;
