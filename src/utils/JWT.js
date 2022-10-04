@@ -2,14 +2,15 @@ const jwt = require('jsonwebtoken');
 
 const TOKEN_SECRET_KEY = process.env.JWT_SECRET || 'blogsAPI';
 
-const generateToken = ({ email, password }) => {
+const generateToken = ({ id, email }) => {
+console.log(id, email);
 const payload = {
+id,
 email,
-password,
 };
 
 const jwtConfig = {
-expiresIn: '15m',
+expiresIn: '365d',
 algorithm: 'HS256',
 };
 
