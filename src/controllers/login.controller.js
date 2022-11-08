@@ -9,7 +9,6 @@ const login = async (req, res) => {
     }
     return res.status(200).json(result);
   } catch (e) {
-    console.log(e.message);
     res.status(500).json({ message: 'Ocorreu um erro' });
   }
 };

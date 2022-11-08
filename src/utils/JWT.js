@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken');
 const TOKEN_SECRET_KEY = process.env.JWT_SECRET || 'blogsAPI';
 
 const generateToken = ({ id, email }) => {
-console.log(id, email);
 const payload = {
 id,
 email,

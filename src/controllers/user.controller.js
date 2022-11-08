@@ -14,7 +14,6 @@ const getAll = async (_req, res) => {
     const users = await userService.getAll();
     res.status(200).json(users);
   } catch (e) {
-    console.log(e.message);
     res.status(500).json({ message: 'Erro no getAll' });
   }
 };
@@ -28,7 +27,6 @@ const getById = async (req, res) => {
     }
     res.status(200).json(result);
   } catch (e) {
-    console.log(e.message);
     res.status(404).json({ message: 'Erro no id' });
   }
 };

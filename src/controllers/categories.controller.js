@@ -10,7 +10,6 @@ const categories = async (req, res, next) => {
   const result = await categoriesService.categories({ name });
     res.status(201).json(result);
   } catch (e) {
-    console.log(e.message);
     res.status(404).json({ message: 'Erro no categories' });
     next();
   }
@@ -21,7 +20,6 @@ const categories = async (req, res, next) => {
       const result = await categoriesService.getCategories();
       return res.status(200).json(result);
     } catch (e) {
-      console.log(e.message);
       res.status(500).json({ message: 'Erro no getAll' });
       next();
     }
